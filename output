@@ -1,0 +1,3667 @@
+Chronologic VCS simulator copyright 1991-2014
+Contains Synopsys proprietary information.
+Compiler version I-2014.03-2; Runtime version I-2014.03-2;  May  5 20:41 2017
+VCD+ Writer I-2014.03-2 Copyright (c) 1991-2014 by Synopsys Inc.
+------------------------------ Fetch ---------------------------------------
+
+
+ address xxxx, next address xxxx Instruction xxxx 
+
+
+eight to one mux select 00x
+eight to one mux address xxxx, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter xxxx
+ Control Signal id_mux_sel xxxxxx, control_wme_signal xxxxxxxxxxxxxxxx, R0 x, Imm x
+
+
+ IMM_MUX xxxx 
+ ext_MUX xxxx 
+ r0_MUX xxxx 
+ op1_MUX xxxx 
+ op2_MUX xxxx 
+ Offset_MUX xxxx 
+ WME MUX xxxx
+
+
+ Register File Output Value
+ Write Enable xx
+ wa2, wa1 0000, xxxx
+ wd2, wd1 xxxx, xxxx
+ op1 xxxx, op2 xxxx 
+
+
+ new address for jump branch signals, xxxx
+ Comparator 
+ Zero x Sign x
+ JumpBranchFlag x 
+ Hazard Unit
+ if_id_write x
+ if_id_flash x
+ id_hazard_flash x
+ hazard_ex_flash x
+ hazard_pc_write x
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 000x
+ Memory 000x
+ Execution 000x
+ Program_Counter xxxx
+ Register Value1 xxxx
+ Op1_address_out 000x
+ Op2_address_out 000x
+ value1 xxxx
+ value2 xxxx
+ func code 000x
+
+
+ Forwarding 
+ op1 x
+ op2 x
+ exe mem op1 x
+ mem wb op1 x
+ ex mem op1 xxxx
+ ex mem wb x
+ mem wb op1 xxxx
+ mem wb wb x
+ op1 select xx
+ op2 select xx
+
+
+ op_mux_out 
+ op1_mux_out xxxx
+ op2_mux_out xxxx
+
+
+ ALUControl
+ Function Code xxxx
+ ALU
+ alu_control_func x op1 xxxx op2 xxxx value 1 value 0 xxxx xxxx overflow x invalid x
+ Function Code xxxx
+ op1 xxxx, op2 xxxx
+ value1 value 0 xxxx, xxxx
+ overflow x, invalid x
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB xxxxxxxxxxxxxxxx
+ MEM xxxxxxxxxxxxxxxx
+ register value1 xxxx 
+ op1_address xxxx
+ result upper xxxx
+ result lower xxxx
+
+
+DataMemory
+ Memory Write x
+ Memory Read x
+ Address xxxx
+ data in xxxx
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB xxxxxxxxxxxxxxxx
+ op1_address xxxx
+ result upper xxxx
+ result lower xxxx
+ mem_data_out     x
+ alu_mem_mux_out xxxxxxxx
+
+
+------------------------------ Instruction: Wrong Operation
+*******************************************************************************************
+
+
+
+
+------------------------------ Instruction: Signed Addition------------------------------
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0002, next address 0004 Instruction 012e 
+
+
+eight to one mux select 000
+eight to one mux address 0004, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0002
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 2, Imm f
+
+
+ IMM_MUX 1111 
+ ext_MUX 000f 
+ r0_MUX 0010 
+ op1_MUX 0f00 
+ op2_MUX 0050 
+ Offset_MUX 005e 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable xx
+ wa2, wa1 0000, xxxx
+ wd2, wd1 0000, 0000
+ op1 0f00, op2 0050 
+
+
+ new address for jump branch signals, 0060
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 000x
+ Memory 000x
+ Execution 000x
+ Program_Counter xxxx
+ Register Value1 xxxx
+ Op1_address_out 000x
+ Op2_address_out 000x
+ value1 xxxx
+ value2 xxxx
+ func code 000x
+
+
+ Forwarding 
+ op1 x
+ op2 x
+ exe mem op1 x
+ mem wb op1 x
+ ex mem op1 xxxx
+ ex mem wb x
+ mem wb op1 xxxx
+ mem wb wb x
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out xxxx
+ op2_mux_out xxxx
+
+
+ ALUControl
+ Function Code xxxx
+ ALU
+ alu_control_func x op1 xxxx op2 xxxx value 1 value 0 xxxx xxxx overflow x invalid x
+ Function Code xxxx
+ op1 xxxx, op2 xxxx
+ value1 value 0 xxxx, xxxx
+ overflow x, invalid x
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 000000000000xxxx
+ MEM 000000000000xxxx
+ register value1 xxxx 
+ op1_address 000x
+ result upper xxxx
+ result lower xxxx
+
+
+DataMemory
+ Memory Write x
+ Memory Read x
+ Address xxxx
+ data in xxxx
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 000000000000xxxx
+ op1_address 000x
+ result upper xxxx
+ result lower xxxx
+ mem_data_out     x
+ alu_mem_mux_out 00000000
+
+
+------------------------------ Instruction: Signed Subtraction------------------------------
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0004, next address 0006 Instruction 034c 
+
+
+eight to one mux select 000
+eight to one mux address 0006, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0004
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 2, Imm e
+
+
+ IMM_MUX 1110 
+ ext_MUX 000e 
+ r0_MUX 0010 
+ op1_MUX 0f00 
+ op2_MUX 0050 
+ Offset_MUX 005c 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable xx
+ wa2, wa1 0000, xxxx
+ wd2, wd1 0000, 0000
+ op1 0f00, op2 0050 
+
+
+ new address for jump branch signals, 0060
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0004
+ Register Value1 0f00
+ Op1_address_out 0001
+ Op2_address_out 0002
+ value1 0f00
+ value2 0050
+ func code 000f
+
+
+ Forwarding 
+ op1 1
+ op2 2
+ exe mem op1 x
+ mem wb op1 x
+ ex mem op1 xxxx
+ ex mem wb x
+ mem wb op1 xxxx
+ mem wb wb x
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0f00
+ op2_mux_out 0050
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 0f00 op2 0050 value 1 value 0 0000 0f50 overflow 0 invalid x
+ Function Code 1111
+ op1 0f00, op2 0050
+ value1 value 0 0000, 0f50
+ overflow 0, invalid x
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 000000000000xxxx
+ MEM 000000000000xxxx
+ register value1 xxxx 
+ op1_address 000x
+ result upper xxxx
+ result lower xxxx
+
+
+DataMemory
+ Memory Write x
+ Memory Read x
+ Address xxxx
+ data in 0f00
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 000000000000xxxx
+ op1_address 000x
+ result upper xxxx
+ result lower xxxx
+ mem_data_out     x
+ alu_mem_mux_out 00000000
+
+
+------------------------------ Instruction: Bitwise or
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0006, next address 0008 Instruction 032d 
+
+
+eight to one mux select 000
+eight to one mux address 0008, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0006
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 4, Imm c
+
+
+ IMM_MUX 1100 
+ ext_MUX 000c 
+ r0_MUX 0100 
+ op1_MUX ff0f 
+ op2_MUX f0ff 
+ Offset_MUX 0098 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable xx
+ wa2, wa1 0000, xxxx
+ wd2, wd1 0000, 0000
+ op1 ff0f, op2 f0ff 
+
+
+ new address for jump branch signals, 009e
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0006
+ Register Value1 0f00
+ Op1_address_out 0001
+ Op2_address_out 0002
+ value1 0f00
+ value2 0050
+ func code 000e
+
+
+ Forwarding 
+ op1 1
+ op2 2
+ exe mem op1 1
+ mem wb op1 x
+ ex mem op1 0f50
+ ex mem wb 1
+ mem wb op1 xxxx
+ mem wb wb x
+ op1 select 01
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0f00
+ op2_mux_out 0050
+
+
+ ALUControl
+ Function Code 1110
+ ALU
+ alu_control_func e op1 0f50 op2 0050 value 1 value 0 0000 0f00 overflow 0 invalid x
+ Function Code 1110
+ op1 0f50, op2 0050
+ value1 value 0 0000, 0f00
+ overflow 0, invalid x
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0f00 
+ op1_address 0001
+ result upper 0000
+ result lower 0f50
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0f50
+ data in 0f00
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 000000000000xxxx
+ op1_address 000x
+ result upper xxxx
+ result lower xxxx
+ mem_data_out     x
+ alu_mem_mux_out 00000000
+
+
+------------------------------ Instruction: Bitwise and
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0008, next address 000a Instruction 0561 
+
+
+eight to one mux select 000
+eight to one mux address 000a, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0008
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 2, Imm d
+
+
+ IMM_MUX 1101 
+ ext_MUX 000d 
+ r0_MUX 0010 
+ op1_MUX ff0f 
+ op2_MUX 0050 
+ Offset_MUX 005a 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0001
+ wd2, wd1 0000, 0f50
+ op1 ff0f, op2 0050 
+
+
+ new address for jump branch signals, 0062
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0008
+ Register Value1 ff0f
+ Op1_address_out 0003
+ Op2_address_out 0004
+ value1 ff0f
+ value2 f0ff
+ func code 000c
+
+
+ Forwarding 
+ op1 3
+ op2 4
+ exe mem op1 1
+ mem wb op1 1
+ ex mem op1 0f00
+ ex mem wb 1
+ mem wb op1 0f50
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out ff0f
+ op2_mux_out f0ff
+
+
+ ALUControl
+ Function Code 1100
+ ALU
+ alu_control_func c op1 ff0f op2 f0ff value 1 value 0 0000 ffff overflow 0 invalid x
+ Function Code 1100
+ op1 ff0f, op2 f0ff
+ value1 value 0 0000, ffff
+ overflow 0, invalid x
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0f00 
+ op1_address 0001
+ result upper 0000
+ result lower 0f00
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0f00
+ data in ff0f
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0001
+ result upper 0000
+ result lower 0f50
+ mem_data_out     x
+ alu_mem_mux_out 00000f50
+
+
+------------------------------ Instruction: Signed Multiplication
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 000a, next address 000c Instruction 0152 
+
+
+eight to one mux select 000
+eight to one mux address 000c, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 000a
+ Control Signal id_mux_sel 000000, control_wme_signal 0000001100000000, R0 6, Imm 1
+
+
+ IMM_MUX 0001 
+ ext_MUX 0001 
+ r0_MUX 0110 
+ op1_MUX 0040 
+ op2_MUX 0024 
+ Offset_MUX 00c2 
+ WME MUX 0300
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0001
+ wd2, wd1 0000, 0f00
+ op1 0040, op2 0024 
+
+
+ new address for jump branch signals, 00cc
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 000a
+ Register Value1 ff0f
+ Op1_address_out 0003
+ Op2_address_out 0002
+ value1 ff0f
+ value2 0050
+ func code 000d
+
+
+ Forwarding 
+ op1 3
+ op2 2
+ exe mem op1 3
+ mem wb op1 1
+ ex mem op1 ffff
+ ex mem wb 1
+ mem wb op1 0f00
+ mem wb wb 1
+ op1 select 01
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out ff0f
+ op2_mux_out 0050
+
+
+ ALUControl
+ Function Code 1101
+ ALU
+ alu_control_func d op1 ffff op2 0050 value 1 value 0 0000 0050 overflow 0 invalid x
+ Function Code 1101
+ op1 ffff, op2 0050
+ value1 value 0 0000, 0050
+ overflow 0, invalid x
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 ff0f 
+ op1_address 0003
+ result upper 0000
+ result lower ffff
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address ffff
+ data in ff0f
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0001
+ result upper 0000
+ result lower 0f00
+ mem_data_out     x
+ alu_mem_mux_out 00000f00
+
+
+------------------------------ Instruction: Signed Division
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 000c, next address 000e Instruction 000e 
+
+
+eight to one mux select 000
+eight to one mux address 000e, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 000c
+ Control Signal id_mux_sel 000000, control_wme_signal 0000001100000000, R0 5, Imm 2
+
+
+ IMM_MUX 0010 
+ ext_MUX 0002 
+ r0_MUX 0101 
+ op1_MUX 0f00 
+ op2_MUX 0040 
+ Offset_MUX 00a4 
+ WME MUX 0300
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0011
+ wd2, wd1 0000, ffff
+ op1 0f00, op2 0040 
+
+
+ new address for jump branch signals, 00b0
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0003
+ Memory 0000
+ Execution 0000
+ Program_Counter 000c
+ Register Value1 0040
+ Op1_address_out 0005
+ Op2_address_out 0006
+ value1 0040
+ value2 0024
+ func code 0001
+
+
+ Forwarding 
+ op1 5
+ op2 6
+ exe mem op1 3
+ mem wb op1 3
+ ex mem op1 0050
+ ex mem wb 1
+ mem wb op1 ffff
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0040
+ op2_mux_out 0024
+
+
+ ALUControl
+ Function Code 0001
+ ALU
+ alu_control_func 1 op1 0040 op2 0024 value 1 value 0 0000 0900 overflow 0 invalid x
+ Function Code 0001
+ op1 0040, op2 0024
+ value1 value 0 0000, 0900
+ overflow 0, invalid x
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 ff0f 
+ op1_address 0003
+ result upper 0000
+ result lower 0050
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0050
+ data in 0040
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0003
+ result upper 0000
+ result lower ffff
+ mem_data_out     x
+ alu_mem_mux_out 0000ffff
+
+
+------------------------------ Instruction: Signed Subtraction------------------------------
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 000e, next address 0010 Instruction 043a 
+
+
+eight to one mux select 000
+eight to one mux address 0010, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 000e
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 0, Imm e
+
+
+ IMM_MUX 1110 
+ ext_MUX 000e 
+ r0_MUX 0000 
+ op1_MUX 0000 
+ op2_MUX 0000 
+ Offset_MUX 001c 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0011
+ wd2, wd1 0000, 0050
+ op1 0000, op2 0000 
+
+
+ new address for jump branch signals, 002a
+ Comparator 
+ Zero 1 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0003
+ Memory 0000
+ Execution 0000
+ Program_Counter 000e
+ Register Value1 0f00
+ Op1_address_out 0001
+ Op2_address_out 0005
+ value1 0f00
+ value2 0040
+ func code 0002
+
+
+ Forwarding 
+ op1 1
+ op2 5
+ exe mem op1 5
+ mem wb op1 3
+ ex mem op1 0900
+ ex mem wb 1
+ mem wb op1 0050
+ mem wb wb 1
+ op1 select 00
+ op2 select 01
+
+
+ op_mux_out 
+ op1_mux_out 0f00
+ op2_mux_out 0040
+
+
+ ALUControl
+ Function Code 0010
+ ALU
+ alu_control_func 2 op1 0f00 op2 0900 value 1 value 0 0600 0001 overflow 0 invalid 0
+ Function Code 0010
+ op1 0f00, op2 0900
+ value1 value 0 0600, 0001
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000011
+ MEM 0000000000000000
+ register value1 0040 
+ op1_address 0005
+ result upper 0000
+ result lower 0900
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0900
+ data in 0f00
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0003
+ result upper 0000
+ result lower 0050
+ mem_data_out     x
+ alu_mem_mux_out 00000050
+
+
+------------------------------ Instruction: logical Shift Left
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0010, next address 0012 Instruction 042b 
+
+
+eight to one mux select 000
+eight to one mux address 0012, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0010
+ Control Signal id_mux_sel 100010, control_wme_signal 0000000100000000, R0 3, Imm 3
+
+
+ IMM_MUX 0011 
+ ext_MUX 0003 
+ r0_MUX 0011 
+ op1_MUX f0ff 
+ op2_MUX 0003 
+ Offset_MUX 0074 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 11
+ wa2, wa1 0000, 0101
+ wd2, wd1 0000, 0900
+ op1 f0ff, op2 0050 
+
+
+ new address for jump branch signals, 0084
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0010
+ Register Value1 0000
+ Op1_address_out 0000
+ Op2_address_out 0000
+ value1 0000
+ value2 0000
+ func code 000e
+
+
+ Forwarding 
+ op1 0
+ op2 0
+ exe mem op1 1
+ mem wb op1 5
+ ex mem op1 0001
+ ex mem wb 1
+ mem wb op1 0900
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 1110
+ ALU
+ alu_control_func e op1 0000 op2 0000 value 1 value 0 0000 0000 overflow 0 invalid 0
+ Function Code 1110
+ op1 0000, op2 0000
+ value1 value 0 0000, 0000
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000011
+ MEM 0000000000000000
+ register value1 0f00 
+ op1_address 0001
+ result upper 0600
+ result lower 0001
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0001
+ data in 0000
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000011
+ op1_address 0005
+ result upper 0000
+ result lower 0900
+ mem_data_out     x
+ alu_mem_mux_out 00000900
+
+
+------------------------------ Instruction: logical Shift Right
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0012, next address 0014 Instruction 0638 
+
+
+eight to one mux select 000
+eight to one mux address 0014, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0012
+ Control Signal id_mux_sel 110010, control_wme_signal 0000000100000000, R0 2, Imm 2
+
+
+ IMM_MUX 0010 
+ ext_MUX 0002 
+ r0_MUX 0010 
+ op1_MUX f0ff 
+ op2_MUX 0002 
+ Offset_MUX 0056 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 11
+ wa2, wa1 0000, 0001
+ wd2, wd1 0600, 0001
+ op1 f0ff, op2 0050 
+
+
+ new address for jump branch signals, 0068
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0012
+ Register Value1 f0ff
+ Op1_address_out 0004
+ Op2_address_out 0003
+ value1 f0ff
+ value2 0003
+ func code 000a
+
+
+ Forwarding 
+ op1 4
+ op2 3
+ exe mem op1 0
+ mem wb op1 1
+ ex mem op1 0000
+ ex mem wb 1
+ mem wb op1 0001
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out f0ff
+ op2_mux_out 0003
+
+
+ ALUControl
+ Function Code 1010
+ ALU
+ alu_control_func a op1 f0ff op2 0003 value 1 value 0 0000 87f8 overflow 0 invalid 0
+ Function Code 1010
+ op1 f0ff, op2 0003
+ value1 value 0 0000, 87f8
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0000 
+ op1_address 0000
+ result upper 0000
+ result lower 0000
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0000
+ data in f0ff
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000011
+ op1_address 0001
+ result upper 0600
+ result lower 0001
+ mem_data_out     x
+ alu_mem_mux_out 06000001
+
+
+------------------------------ Instruction: Rotate Left
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0014, next address 0016 Instruction 0629 
+
+
+eight to one mux select 000
+eight to one mux address 0016, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0014
+ Control Signal id_mux_sel 100010, control_wme_signal 0000000100000000, R0 3, Imm 3
+
+
+ IMM_MUX 0011 
+ ext_MUX 0003 
+ r0_MUX 0011 
+ op1_MUX 0024 
+ op2_MUX 0003 
+ Offset_MUX 0070 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0000
+ wd2, wd1 0000, 0000
+ op1 0024, op2 0050 
+
+
+ new address for jump branch signals, 0084
+ Comparator 
+ Zero 0 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0014
+ Register Value1 f0ff
+ Op1_address_out 0004
+ Op2_address_out 0002
+ value1 f0ff
+ value2 0002
+ func code 000b
+
+
+ Forwarding 
+ op1 4
+ op2 2
+ exe mem op1 4
+ mem wb op1 0
+ ex mem op1 87f8
+ ex mem wb 1
+ mem wb op1 0000
+ mem wb wb 1
+ op1 select 01
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out f0ff
+ op2_mux_out 0002
+
+
+ ALUControl
+ Function Code 1011
+ ALU
+ alu_control_func b op1 87f8 op2 0002 value 1 value 0 0000 21fe overflow 0 invalid 0
+ Function Code 1011
+ op1 87f8, op2 0002
+ value1 value 0 0000, 21fe
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 f0ff 
+ op1_address 0004
+ result upper 0000
+ result lower 87f8
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 87f8
+ data in f0ff
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0000
+ result upper 0000
+ result lower 0000
+ mem_data_out     x
+ alu_mem_mux_out 00000000
+
+
+------------------------------ Instruction: Rotate Right
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0016, next address 0018 Instruction 6704 
+
+
+eight to one mux select 000
+eight to one mux address 0018, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0016
+ Control Signal id_mux_sel 100010, control_wme_signal 0000000100000000, R0 2, Imm 2
+
+
+ IMM_MUX 0010 
+ ext_MUX 0002 
+ r0_MUX 0010 
+ op1_MUX 0024 
+ op2_MUX 0002 
+ Offset_MUX 0052 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0100
+ wd2, wd1 0000, 87f8
+ op1 0024, op2 0050 
+
+
+ new address for jump branch signals, 0068
+ Comparator 
+ Zero 0 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0016
+ Register Value1 0024
+ Op1_address_out 0006
+ Op2_address_out 0003
+ value1 0024
+ value2 0003
+ func code 0008
+
+
+ Forwarding 
+ op1 6
+ op2 3
+ exe mem op1 4
+ mem wb op1 4
+ ex mem op1 21fe
+ ex mem wb 1
+ mem wb op1 87f8
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0024
+ op2_mux_out 0003
+
+
+ ALUControl
+ Function Code 1000
+ ALU
+ alu_control_func 8 op1 0024 op2 0003 value 1 value 0 0000 0120 overflow 0 invalid 0
+ Function Code 1000
+ op1 0024, op2 0003
+ value1 value 0 0000, 0120
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 f0ff 
+ op1_address 0004
+ result upper 0000
+ result lower 21fe
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 21fe
+ data in 0024
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0004
+ result upper 0000
+ result lower 87f8
+ mem_data_out     x
+ alu_mem_mux_out 000087f8
+
+
+------------------------------ Instruction: beq
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0018, next address 001a Instruction 0b1f 
+
+
+eight to one mux select 000
+eight to one mux address 001a, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0018
+ Control Signal id_mux_sel 001000, control_wme_signal 0000000000000000, R0 0, Imm 4
+
+
+ IMM_MUX 0100 
+ ext_MUX 0004 
+ r0_MUX 0000 
+ op1_MUX 00ff 
+ op2_MUX 0000 
+ Offset_MUX 0008 
+ WME MUX 0000
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0100
+ wd2, wd1 0000, 21fe
+ op1 00ff, op2 0000 
+
+
+ new address for jump branch signals, 0020
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0018
+ Register Value1 0024
+ Op1_address_out 0006
+ Op2_address_out 0002
+ value1 0024
+ value2 0002
+ func code 0009
+
+
+ Forwarding 
+ op1 6
+ op2 2
+ exe mem op1 6
+ mem wb op1 4
+ ex mem op1 0120
+ ex mem wb 1
+ mem wb op1 21fe
+ mem wb wb 1
+ op1 select 01
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0024
+ op2_mux_out 0002
+
+
+ ALUControl
+ Function Code 1001
+ ALU
+ alu_control_func 9 op1 0120 op2 0002 value 1 value 0 0000 0048 overflow 0 invalid 0
+ Function Code 1001
+ op1 0120, op2 0002
+ value1 value 0 0000, 0048
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0024 
+ op1_address 0006
+ result upper 0000
+ result lower 0120
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0120
+ data in 0024
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0004
+ result upper 0000
+ result lower 21fe
+ mem_data_out     x
+ alu_mem_mux_out 000021fe
+
+
+------------------------------ Instruction: Signed Addition------------------------------
+*******************************************************************************************
+
+
+ERROR IN ALU
+------------------------------ Fetch ---------------------------------------
+
+
+ address 001a, next address 001c Instruction 4705 
+
+
+eight to one mux select 000
+eight to one mux address 001c, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 001a
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 1, Imm f
+
+
+ IMM_MUX 1111 
+ ext_MUX 000f 
+ r0_MUX 0001 
+ op1_MUX 0000 
+ op2_MUX 0001 
+ Offset_MUX 003e 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0110
+ wd2, wd1 0000, 0120
+ op1 0000, op2 0001 
+
+
+ new address for jump branch signals, 0058
+ Comparator 
+ Zero 0 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0000
+ Memory 0000
+ Execution 0000
+ Program_Counter 001a
+ Register Value1 00ff
+ Op1_address_out 0007
+ Op2_address_out 0000
+ value1 00ff
+ value2 0000
+ func code 0004
+
+
+ Forwarding 
+ op1 7
+ op2 0
+ exe mem op1 6
+ mem wb op1 6
+ ex mem op1 0048
+ ex mem wb 1
+ mem wb op1 0120
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 00ff
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 0100
+ ALU
+ alu_control_func 4 op1 00ff op2 0000 value 1 value 0 0000 0048 overflow 0 invalid 0
+ Function Code 0100
+ op1 00ff, op2 0000
+ value1 value 0 0000, 0048
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0024 
+ op1_address 0006
+ result upper 0000
+ result lower 0048
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0048
+ data in 00ff
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0006
+ result upper 0000
+ result lower 0120
+ mem_data_out     x
+ alu_mem_mux_out 00000120
+
+
+------------------------------ Instruction: blt
+*******************************************************************************************
+
+
+
+
+------------------------------ Instruction: Signed Addition------------------------------
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 001c, next address 001e Instruction 0b2f 
+
+
+eight to one mux select 000
+eight to one mux address 001e, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 001e
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 2, Imm f
+
+
+ IMM_MUX 1111 
+ ext_MUX 000f 
+ r0_MUX 0010 
+ op1_MUX 0000 
+ op2_MUX 0050 
+ Offset_MUX 005e 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0110
+ wd2, wd1 0000, 0048
+ op1 0000, op2 0050 
+
+
+ new address for jump branch signals, 007c
+ Comparator 
+ Zero 0 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 001c
+ Register Value1 0000
+ Op1_address_out 000b
+ Op2_address_out 0001
+ value1 0000
+ value2 0001
+ func code 000f
+
+
+ Forwarding 
+ op1 b
+ op2 1
+ exe mem op1 7
+ mem wb op1 6
+ ex mem op1 0048
+ ex mem wb 0
+ mem wb op1 0048
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0001
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 0000 op2 0001 value 1 value 0 0000 0001 overflow 0 invalid 0
+ Function Code 1111
+ op1 0000, op2 0001
+ value1 value 0 0000, 0001
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000000
+ MEM 0000000000000000
+ register value1 00ff 
+ op1_address 0007
+ result upper 0000
+ result lower 0048
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0048
+ data in 0000
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0006
+ result upper 0000
+ result lower 0048
+ mem_data_out     x
+ alu_mem_mux_out 00000048
+------------------------------ Fetch ---------------------------------------
+
+
+ address 001e, next address 0020 Instruction 5702 
+
+
+eight to one mux select 000
+eight to one mux address 0020, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 001e
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 2, Imm f
+
+
+ IMM_MUX 1111 
+ ext_MUX 000f 
+ r0_MUX 0010 
+ op1_MUX 0000 
+ op2_MUX 0050 
+ Offset_MUX 005e 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 00
+ wa2, wa1 0000, 0111
+ wd2, wd1 0000, 0048
+ op1 0000, op2 0050 
+
+
+ new address for jump branch signals, 007c
+ Comparator 
+ Zero 0 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 001e
+ Register Value1 0000
+ Op1_address_out 000b
+ Op2_address_out 0002
+ value1 0000
+ value2 0050
+ func code 000f
+
+
+ Forwarding 
+ op1 b
+ op2 2
+ exe mem op1 b
+ mem wb op1 7
+ ex mem op1 0001
+ ex mem wb 1
+ mem wb op1 0048
+ mem wb wb 0
+ op1 select 01
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0050
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 0001 op2 0050 value 1 value 0 0000 0051 overflow 0 invalid 0
+ Function Code 1111
+ op1 0001, op2 0050
+ value1 value 0 0000, 0051
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0000 
+ op1_address 000b
+ result upper 0000
+ result lower 0001
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0001
+ data in 0000
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000000
+ op1_address 0007
+ result upper 0000
+ result lower 0048
+ mem_data_out     x
+ alu_mem_mux_out 00000048
+
+
+------------------------------ Instruction: bgt
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0020, next address 0022 Instruction 021f 
+
+
+eight to one mux select 001
+eight to one mux address 0024, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0020
+ Control Signal id_mux_sel 001000, control_wme_signal 0000000000000000, R0 0, Imm 2
+
+
+ IMM_MUX 0010 
+ ext_MUX 0002 
+ r0_MUX 0000 
+ op1_MUX 00ff 
+ op2_MUX 0000 
+ Offset_MUX 0004 
+ WME MUX 0000
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 1011
+ wd2, wd1 0000, 0001
+ op1 00ff, op2 0000 
+
+
+ new address for jump branch signals, 0024
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 1 
+ Hazard Unit
+ if_id_write 0
+ if_id_flash 1
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0020
+ Register Value1 0000
+ Op1_address_out 000b
+ Op2_address_out 0002
+ value1 0000
+ value2 0050
+ func code 000f
+
+
+ Forwarding 
+ op1 b
+ op2 2
+ exe mem op1 b
+ mem wb op1 b
+ ex mem op1 0051
+ ex mem wb 1
+ mem wb op1 0001
+ mem wb wb 1
+ op1 select 01
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0050
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 0051 op2 0050 value 1 value 0 0000 00a1 overflow 0 invalid 0
+ Function Code 1111
+ op1 0051, op2 0050
+ value1 value 0 0000, 00a1
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0000 
+ op1_address 000b
+ result upper 0000
+ result lower 0051
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0051
+ data in 0000
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 000b
+ result upper 0000
+ result lower 0001
+ mem_data_out     x
+ alu_mem_mux_out 00000001
+
+
+------------------------------ Instruction: Wrong Operation
+*******************************************************************************************
+
+
+
+
+------------------------------ Instruction: load
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0024, next address 0026 Instruction 8890 
+
+
+eight to one mux select 000
+eight to one mux address 0026, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0026
+ Control Signal id_mux_sel 010100, control_wme_signal 0000010100101111, R0 9, Imm 0
+
+
+ IMM_MUX 0000 
+ ext_MUX 0000 
+ r0_MUX 1001 
+ op1_MUX 0000 
+ op2_MUX 0000 
+ Offset_MUX ff20 
+ WME MUX 052f
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 1011
+ wd2, wd1 0000, 0051
+ op1 aaaa, op2 0000 
+
+
+ new address for jump branch signals, ff46
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0000
+ Memory 0000
+ Execution 0000
+ Program_Counter 0022
+ Register Value1 00ff
+ Op1_address_out 0007
+ Op2_address_out 0000
+ value1 00ff
+ value2 0000
+ func code 0002
+
+
+ Forwarding 
+ op1 7
+ op2 0
+ exe mem op1 b
+ mem wb op1 b
+ ex mem op1 00a1
+ ex mem wb 1
+ mem wb op1 0051
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 00ff
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 0010
+ ALU
+ alu_control_func 2 op1 00ff op2 0000 value 1 value 0 xxxx xxxx overflow 0 invalid 0
+ Function Code 0010
+ op1 00ff, op2 0000
+ value1 value 0 xxxx, xxxx
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0000 
+ op1_address 000b
+ result upper 0000
+ result lower 00a1
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 00a1
+ data in 00ff
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 000b
+ result upper 0000
+ result lower 0051
+ mem_data_out     x
+ alu_mem_mux_out 00000051
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0026, next address 0028 Instruction 088f 
+
+
+eight to one mux select 000
+eight to one mux address 0028, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0026
+ Control Signal id_mux_sel 010100, control_wme_signal 0000010100101111, R0 9, Imm 0
+
+
+ IMM_MUX 0000 
+ ext_MUX 0000 
+ r0_MUX 1001 
+ op1_MUX 0000 
+ op2_MUX 0000 
+ Offset_MUX ff20 
+ WME MUX 0000
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 1011
+ wd2, wd1 0000, 00a1
+ op1 aaaa, op2 0000 
+
+
+ new address for jump branch signals, ff46
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 0
+ if_id_flash 0
+ id_hazard_flash 1
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0005
+ Memory 0002
+ Execution 000f
+ Program_Counter 0026
+ Register Value1 aaaa
+ Op1_address_out 0008
+ Op2_address_out 0009
+ value1 0000
+ value2 0000
+ func code 0000
+
+
+ Forwarding 
+ op1 8
+ op2 9
+ exe mem op1 7
+ mem wb op1 b
+ ex mem op1 xxxx
+ ex mem wb 0
+ mem wb op1 00a1
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 0000 op2 0000 value 1 value 0 0000 0000 overflow 0 invalid 0
+ Function Code 1111
+ op1 0000, op2 0000
+ value1 value 0 0000, 0000
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000000
+ MEM 0000000000000000
+ register value1 00ff 
+ op1_address 0007
+ result upper xxxx
+ result lower xxxx
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address xxxx
+ data in aaaa
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 000b
+ result upper 0000
+ result lower 00a1
+ mem_data_out     x
+ alu_mem_mux_out 000000a1
+ERROR IN ALU
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0028, next address 002a Instruction b892 
+
+
+eight to one mux select 000
+eight to one mux address 002a, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0026
+ Control Signal id_mux_sel 010100, control_wme_signal 0000010100101111, R0 9, Imm 0
+
+
+ IMM_MUX 0000 
+ ext_MUX 0000 
+ r0_MUX 1001 
+ op1_MUX 0000 
+ op2_MUX 0000 
+ Offset_MUX ff20 
+ WME MUX 052f
+
+
+ Register File Output Value
+ Write Enable 00
+ wa2, wa1 0000, 0111
+ wd2, wd1 xxxx, xxxx
+ op1 aaaa, op2 0000 
+
+
+ new address for jump branch signals, ff46
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0000
+ Memory 0000
+ Execution 0000
+ Program_Counter 0028
+ Register Value1 aaaa
+ Op1_address_out 0008
+ Op2_address_out 0009
+ value1 0000
+ value2 0000
+ func code 0000
+
+
+ Forwarding 
+ op1 8
+ op2 9
+ exe mem op1 8
+ mem wb op1 7
+ ex mem op1 0000
+ ex mem wb 1
+ mem wb op1 xxxx
+ mem wb wb 0
+ op1 select 01
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 0000
+ ALU
+ alu_control_func 0 op1 0000 op2 0000 value 1 value 0 0000 0000 overflow 0 invalid 0
+ Function Code 0000
+ op1 0000, op2 0000
+ value1 value 0 0000, 0000
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000101
+ MEM 0000000000000010
+ register value1 aaaa 
+ op1_address 0008
+ result upper 0000
+ result lower 0000
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 1
+ Address 0000
+ data in aaaa
+ data out 99ab
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000000
+ op1_address 0007
+ result upper xxxx
+ result lower xxxx
+ mem_data_out     x
+ alu_mem_mux_out xxxxxxxx
+
+
+------------------------------ Instruction: store
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 002a, next address 002c Instruction 8a92 
+
+
+eight to one mux select 000
+eight to one mux address 002c, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 002a
+ Control Signal id_mux_sel 010100, control_wme_signal 0000000000011111, R0 9, Imm 2
+
+
+ IMM_MUX 0010 
+ ext_MUX 0002 
+ r0_MUX 1001 
+ op1_MUX 0002 
+ op2_MUX 0000 
+ Offset_MUX ff24 
+ WME MUX 0000
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 1000
+ wd2, wd1 0000, ab99
+ op1 aaaa, op2 0000 
+
+
+ new address for jump branch signals, ff4e
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 0
+ if_id_flash 0
+ id_hazard_flash 1
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0005
+ Memory 0002
+ Execution 000f
+ Program_Counter 002a
+ Register Value1 aaaa
+ Op1_address_out 0008
+ Op2_address_out 0009
+ value1 0000
+ value2 0000
+ func code 0000
+
+
+ Forwarding 
+ op1 8
+ op2 9
+ exe mem op1 8
+ mem wb op1 8
+ ex mem op1 0000
+ ex mem wb 0
+ mem wb op1 0000
+ mem wb wb 1
+ op1 select 10
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 ab99 op2 0000 value 1 value 0 0000 ab99 overflow 0 invalid 0
+ Function Code 1111
+ op1 ab99, op2 0000
+ value1 value 0 0000, ab99
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000000
+ MEM 0000000000000000
+ register value1 aaaa 
+ op1_address 0008
+ result upper 0000
+ result lower 0000
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0000
+ data in aaaa
+ data out 99ab
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000101
+ op1_address 0008
+ result upper 0000
+ result lower 0000
+ mem_data_out 43929
+ alu_mem_mux_out 0000ab99
+------------------------------ Fetch ---------------------------------------
+
+
+ address 002c, next address 002e Instruction 0ccf 
+
+
+eight to one mux select 000
+eight to one mux address 002e, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 002a
+ Control Signal id_mux_sel 010100, control_wme_signal 0000000000011111, R0 9, Imm 2
+
+
+ IMM_MUX 0010 
+ ext_MUX 0002 
+ r0_MUX 1001 
+ op1_MUX 0002 
+ op2_MUX 0000 
+ Offset_MUX ff24 
+ WME MUX 001f
+
+
+ Register File Output Value
+ Write Enable 00
+ wa2, wa1 0000, 1000
+ wd2, wd1 0000, 0000
+ op1 ab99, op2 0000 
+
+
+ new address for jump branch signals, ff4e
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0000
+ Memory 0000
+ Execution 0000
+ Program_Counter 002c
+ Register Value1 aaaa
+ Op1_address_out 0008
+ Op2_address_out 0009
+ value1 0002
+ value2 0000
+ func code 0002
+
+
+ Forwarding 
+ op1 8
+ op2 9
+ exe mem op1 8
+ mem wb op1 8
+ ex mem op1 ab99
+ ex mem wb 1
+ mem wb op1 0000
+ mem wb wb 0
+ op1 select 01
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0002
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 0010
+ ALU
+ alu_control_func 2 op1 ab99 op2 0000 value 1 value 0 xxxx xxxx overflow 0 invalid 0
+ Function Code 0010
+ op1 ab99, op2 0000
+ value1 value 0 xxxx, xxxx
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000101
+ MEM 0000000000000010
+ register value1 aaaa 
+ op1_address 0008
+ result upper 0000
+ result lower ab99
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 1
+ Address ab99
+ data in aaaa
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000000
+ op1_address 0008
+ result upper 0000
+ result lower 0000
+ mem_data_out 43929
+ alu_mem_mux_out 00000000
+
+
+------------------------------ Instruction: Signed Addition------------------------------
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 002e, next address 0030 Instruction 0dde 
+
+
+eight to one mux select 000
+eight to one mux address 0030, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 002e
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 c, Imm f
+
+
+ IMM_MUX 1111 
+ ext_MUX 000f 
+ r0_MUX 1100 
+ op1_MUX ffff 
+ op2_MUX ffff 
+ Offset_MUX ff9e 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 1000
+ wd2, wd1 0000, xxxx
+ op1 ffff, op2 ffff 
+
+
+ new address for jump branch signals, ffcc
+ Comparator 
+ Zero 1 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0000
+ Memory 0001
+ Execution 000f
+ Program_Counter 002e
+ Register Value1 ab99
+ Op1_address_out 0008
+ Op2_address_out 0009
+ value1 0002
+ value2 0000
+ func code 0002
+
+
+ Forwarding 
+ op1 8
+ op2 9
+ exe mem op1 8
+ mem wb op1 8
+ ex mem op1 xxxx
+ ex mem wb 0
+ mem wb op1 ab99
+ mem wb wb 1
+ op1 select 10
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0002
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 xxxx op2 0000 value 1 value 0 xxxx xxxx overflow 0 invalid 0
+ Function Code 1111
+ op1 xxxx, op2 0000
+ value1 value 0 xxxx, xxxx
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000000
+ MEM 0000000000000000
+ register value1 aaaa 
+ op1_address 0008
+ result upper xxxx
+ result lower xxxx
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address xxxx
+ data in ab99
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000101
+ op1_address 0008
+ result upper 0000
+ result lower ab99
+ mem_data_out     x
+ alu_mem_mux_out 0000xxxx
+
+
+------------------------------ Instruction: Signed Subtraction------------------------------
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0030, next address 0032 Instruction 0cdf 
+
+
+eight to one mux select 000
+eight to one mux address 0032, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0030
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 d, Imm e
+
+
+ IMM_MUX 1110 
+ ext_MUX 000e 
+ r0_MUX 1101 
+ op1_MUX 0002 
+ op2_MUX 0002 
+ Offset_MUX ffbc 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 00
+ wa2, wa1 0000, 1000
+ wd2, wd1 xxxx, xxxx
+ op1 0002, op2 0002 
+
+
+ new address for jump branch signals, ffec
+ Comparator 
+ Zero 1 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0030
+ Register Value1 ffff
+ Op1_address_out 000c
+ Op2_address_out 000c
+ value1 ffff
+ value2 ffff
+ func code 000f
+
+
+ Forwarding 
+ op1 c
+ op2 c
+ exe mem op1 8
+ mem wb op1 8
+ ex mem op1 xxxx
+ ex mem wb 0
+ mem wb op1 xxxx
+ mem wb wb 0
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out ffff
+ op2_mux_out ffff
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 ffff op2 ffff value 1 value 0 0001 fffe overflow 0 invalid 0
+ Function Code 1111
+ op1 ffff, op2 ffff
+ value1 value 0 0001, fffe
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000000
+ MEM 0000000000000001
+ register value1 ab99 
+ op1_address 0008
+ result upper xxxx
+ result lower xxxx
+
+
+DataMemory
+ Memory Write 1
+ Memory Read 0
+ Address xxxx
+ data in ffff
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000000
+ op1_address 0008
+ result upper xxxx
+ result lower xxxx
+ mem_data_out     x
+ alu_mem_mux_out xxxxxxxx
+
+
+------------------------------ Instruction: Signed Addition------------------------------
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0032, next address 0034 Instruction ebcf 
+
+
+eight to one mux select 000
+eight to one mux address 0034, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0032
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 d, Imm f
+
+
+ IMM_MUX 1111 
+ ext_MUX 000f 
+ r0_MUX 1101 
+ op1_MUX ffff 
+ op2_MUX 0002 
+ Offset_MUX ffbe 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 00
+ wa2, wa1 0000, 1000
+ wd2, wd1 xxxx, xxxx
+ op1 ffff, op2 0002 
+
+
+ new address for jump branch signals, fff0
+ Comparator 
+ Zero 0 Sign 1
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0032
+ Register Value1 0002
+ Op1_address_out 000d
+ Op2_address_out 000d
+ value1 0002
+ value2 0002
+ func code 000e
+
+
+ Forwarding 
+ op1 d
+ op2 d
+ exe mem op1 c
+ mem wb op1 8
+ ex mem op1 fffe
+ ex mem wb 1
+ mem wb op1 xxxx
+ mem wb wb 0
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0002
+ op2_mux_out 0002
+
+
+ ALUControl
+ Function Code 1110
+ ALU
+ alu_control_func e op1 0002 op2 0002 value 1 value 0 0000 0000 overflow 0 invalid 0
+ Function Code 1110
+ op1 0002, op2 0002
+ value1 value 0 0000, 0000
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 ffff 
+ op1_address 000c
+ result upper 0001
+ result lower fffe
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address fffe
+ data in 0002
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000000
+ op1_address 0008
+ result upper xxxx
+ result lower xxxx
+ mem_data_out     x
+ alu_mem_mux_out xxxxxxxx
+
+
+------------------------------ Invalid Operation
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0034, next address 0036 Instruction 0000 
+
+
+eight to one mux select 000
+eight to one mux address 0036, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0034
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 c, Imm f
+
+
+ IMM_MUX 1111 
+ ext_MUX 000f 
+ r0_MUX 1100 
+ op1_MUX 00a1 
+ op2_MUX ffff 
+ Offset_MUX ff9e 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 1100
+ wd2, wd1 0001, fffe
+ op1 00a1, op2 ffff 
+
+
+ new address for jump branch signals, ffd2
+ Comparator 
+ Zero 0 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0034
+ Register Value1 ffff
+ Op1_address_out 000c
+ Op2_address_out 000d
+ value1 ffff
+ value2 0002
+ func code 000f
+
+
+ Forwarding 
+ op1 c
+ op2 d
+ exe mem op1 d
+ mem wb op1 c
+ ex mem op1 0000
+ ex mem wb 1
+ mem wb op1 fffe
+ mem wb wb 1
+ op1 select 10
+ op2 select 01
+
+
+ op_mux_out 
+ op1_mux_out ffff
+ op2_mux_out 0002
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 fffe op2 0000 value 1 value 0 0000 fffe overflow 0 invalid 0
+ Function Code 1111
+ op1 fffe, op2 0000
+ value1 value 0 0000, fffe
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0002 
+ op1_address 000d
+ result upper 0000
+ result lower 0000
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 0000
+ data in ffff
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 000c
+ result upper 0001
+ result lower fffe
+ mem_data_out     x
+ alu_mem_mux_out 0001fffe
+
+
+------------------------------ Instruction: Wrong Operation
+*******************************************************************************************
+
+
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0036, next address 0038 Instruction 0000 
+
+
+eight to one mux select 000
+eight to one mux address 0038, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0036
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 0, Imm 0
+
+
+ IMM_MUX 0000 
+ ext_MUX 0000 
+ r0_MUX 0000 
+ op1_MUX 0000 
+ op2_MUX 0000 
+ Offset_MUX 0000 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 1101
+ wd2, wd1 0000, 0000
+ op1 0000, op2 0000 
+
+
+ new address for jump branch signals, 0036
+ Comparator 
+ Zero 1 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0036
+ Register Value1 00a1
+ Op1_address_out 000b
+ Op2_address_out 000c
+ value1 00a1
+ value2 ffff
+ func code 000f
+
+
+ Forwarding 
+ op1 b
+ op2 c
+ exe mem op1 c
+ mem wb op1 d
+ ex mem op1 fffe
+ ex mem wb 1
+ mem wb op1 0000
+ mem wb wb 1
+ op1 select 00
+ op2 select 01
+
+
+ op_mux_out 
+ op1_mux_out 00a1
+ op2_mux_out ffff
+
+
+ ALUControl
+ Function Code 1111
+ ALU
+ alu_control_func f op1 00a1 op2 fffe value 1 value 0 0001 009f overflow 0 invalid 0
+ Function Code 1111
+ op1 00a1, op2 fffe
+ value1 value 0 0001, 009f
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 ffff 
+ op1_address 000c
+ result upper 0000
+ result lower fffe
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address fffe
+ data in 00a1
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 000d
+ result upper 0000
+ result lower 0000
+ mem_data_out     x
+ alu_mem_mux_out 00000000
+ERROR IN ALU
+------------------------------ Fetch ---------------------------------------
+
+
+ address 0038, next address 003a Instruction 0000 
+
+
+eight to one mux select 000
+eight to one mux address 003a, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 0038
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 0, Imm 0
+
+
+ IMM_MUX 0000 
+ ext_MUX 0000 
+ r0_MUX 0000 
+ op1_MUX 0000 
+ op2_MUX 0000 
+ Offset_MUX 0000 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 1100
+ wd2, wd1 0000, fffe
+ op1 0000, op2 0000 
+
+
+ new address for jump branch signals, 0038
+ Comparator 
+ Zero 1 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 0038
+ Register Value1 0000
+ Op1_address_out 0000
+ Op2_address_out 0000
+ value1 0000
+ value2 0000
+ func code 0000
+
+
+ Forwarding 
+ op1 0
+ op2 0
+ exe mem op1 b
+ mem wb op1 c
+ ex mem op1 009f
+ ex mem wb 1
+ mem wb op1 fffe
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 0000
+ ALU
+ alu_control_func 0 op1 0000 op2 0000 value 1 value 0 0001 009f overflow 0 invalid 0
+ Function Code 0000
+ op1 0000, op2 0000
+ value1 value 0 0001, 009f
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 00a1 
+ op1_address 000b
+ result upper 0001
+ result lower 009f
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 009f
+ data in 0000
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 000c
+ result upper 0000
+ result lower fffe
+ mem_data_out     x
+ alu_mem_mux_out 0000fffe
+------------------------------ Fetch ---------------------------------------
+
+
+ address 003a, next address 003c Instruction 0000 
+
+
+eight to one mux select 000
+eight to one mux address 003c, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 003a
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 0, Imm 0
+
+
+ IMM_MUX 0000 
+ ext_MUX 0000 
+ r0_MUX 0000 
+ op1_MUX 0000 
+ op2_MUX 0000 
+ Offset_MUX 0000 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 1011
+ wd2, wd1 0001, 009f
+ op1 0000, op2 0000 
+
+
+ new address for jump branch signals, 003a
+ Comparator 
+ Zero 1 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 003a
+ Register Value1 0000
+ Op1_address_out 0000
+ Op2_address_out 0000
+ value1 0000
+ value2 0000
+ func code 0000
+
+
+ Forwarding 
+ op1 0
+ op2 0
+ exe mem op1 0
+ mem wb op1 b
+ ex mem op1 009f
+ ex mem wb 1
+ mem wb op1 009f
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 0000
+ ALU
+ alu_control_func 0 op1 0000 op2 0000 value 1 value 0 0001 009f overflow 0 invalid 0
+ Function Code 0000
+ op1 0000, op2 0000
+ value1 value 0 0001, 009f
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0000 
+ op1_address 0000
+ result upper 0001
+ result lower 009f
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 009f
+ data in 0000
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 000b
+ result upper 0001
+ result lower 009f
+ mem_data_out     x
+ alu_mem_mux_out 0001009f
+------------------------------ Fetch ---------------------------------------
+
+
+ address 003c, next address 003e Instruction 0000 
+
+
+eight to one mux select 000
+eight to one mux address 003e, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 003c
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 0, Imm 0
+
+
+ IMM_MUX 0000 
+ ext_MUX 0000 
+ r0_MUX 0000 
+ op1_MUX 0000 
+ op2_MUX 0000 
+ Offset_MUX 0000 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0000
+ wd2, wd1 0001, 009f
+ op1 0000, op2 0000 
+
+
+ new address for jump branch signals, 003c
+ Comparator 
+ Zero 1 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 003c
+ Register Value1 0000
+ Op1_address_out 0000
+ Op2_address_out 0000
+ value1 0000
+ value2 0000
+ func code 0000
+
+
+ Forwarding 
+ op1 0
+ op2 0
+ exe mem op1 0
+ mem wb op1 0
+ ex mem op1 009f
+ ex mem wb 1
+ mem wb op1 009f
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 0000
+ ALU
+ alu_control_func 0 op1 0000 op2 0000 value 1 value 0 0001 009f overflow 0 invalid 0
+ Function Code 0000
+ op1 0000, op2 0000
+ value1 value 0 0001, 009f
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0000 
+ op1_address 0000
+ result upper 0001
+ result lower 009f
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 009f
+ data in 0000
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0000
+ result upper 0001
+ result lower 009f
+ mem_data_out     x
+ alu_mem_mux_out 0001009f
+------------------------------ Fetch ---------------------------------------
+
+
+ address 003e, next address 0040 Instruction 0000 
+
+
+eight to one mux select 000
+eight to one mux address 0040, 
+------------------------------ Decode --------------------------------------
+
+
+ Program Counter 003e
+ Control Signal id_mux_sel 000000, control_wme_signal 0000000100000000, R0 0, Imm 0
+
+
+ IMM_MUX 0000 
+ ext_MUX 0000 
+ r0_MUX 0000 
+ op1_MUX 009f 
+ op2_MUX 009f 
+ Offset_MUX 0000 
+ WME MUX 0100
+
+
+ Register File Output Value
+ Write Enable 01
+ wa2, wa1 0000, 0000
+ wd2, wd1 0001, 009f
+ op1 009f, op2 009f 
+
+
+ new address for jump branch signals, 003e
+ Comparator 
+ Zero 1 Sign 0
+ JumpBranchFlag 0 
+ Hazard Unit
+ if_id_write 1
+ if_id_flash 0
+ id_hazard_flash 0
+ hazard_ex_flash 0
+ hazard_pc_write 1
+------------------------------ Execute --------------------------------------
+
+
+ ID/EX BUFFER
+ Write Back 0001
+ Memory 0000
+ Execution 0000
+ Program_Counter 003e
+ Register Value1 0000
+ Op1_address_out 0000
+ Op2_address_out 0000
+ value1 0000
+ value2 0000
+ func code 0000
+
+
+ Forwarding 
+ op1 0
+ op2 0
+ exe mem op1 0
+ mem wb op1 0
+ ex mem op1 009f
+ ex mem wb 1
+ mem wb op1 009f
+ mem wb wb 1
+ op1 select 00
+ op2 select 00
+
+
+ op_mux_out 
+ op1_mux_out 0000
+ op2_mux_out 0000
+
+
+ ALUControl
+ Function Code 0000
+ ALU
+ alu_control_func 0 op1 0000 op2 0000 value 1 value 0 0001 009f overflow 0 invalid 0
+ Function Code 0000
+ op1 0000, op2 0000
+ value1 value 0 0001, 009f
+ overflow 0, invalid 0
+
+
+------------------------------ Memory  --------------------------------------
+
+
+ EX/MEM BUFFER
+ WB 0000000000000001
+ MEM 0000000000000000
+ register value1 0000 
+ op1_address 0000
+ result upper 0001
+ result lower 009f
+
+
+DataMemory
+ Memory Write 0
+ Memory Read 0
+ Address 009f
+ data in 0000
+ data out xxxx
+------------------------------ Write Back  --------------------------------------
+
+
+ MEM/EXE BUFFER
+ WB 0000000000000001
+ op1_address 0000
+ result upper 0001
+ result lower 009f
+ mem_data_out     x
+ alu_mem_mux_out 0001009f
+ERROR IN ALU
+$finish called from file "cpu_fixture.v", line 19.
+$finish at simulation time                  310
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 310
+CPU Time:      0.350 seconds;       Data structure size:   0.0Mb
+Fri May  5 20:41:39 2017
